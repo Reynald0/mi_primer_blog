@@ -13,6 +13,8 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
+    if not request.user.is_authenticated ():
+        return render(request, 'blog/no.html')
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():

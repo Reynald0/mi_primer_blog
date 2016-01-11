@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'account',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,3 +103,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_URL = '/account/login/'
+LOGOUT_URL = '/account/logout/'
