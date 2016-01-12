@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h1> Registro de usuario </h1>
+  <form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  <h3><a href="{% url 'blog.views.post_list' %}">Regresar</a></h3>
+{% endblock %}

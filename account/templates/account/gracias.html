@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h1> Registro completado </h1>
+  <div class="alert alert-success" role="alert">{{ username }} te has registrado exitosamente!</div>
+  <h3><a href="{% url 'blog.views.post_list' %}">Regresar</a></h3>
+{% endblock %}

@@ -9,7 +9,8 @@
         </head>
         <body>
             <div class="page-header">
-              <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+              {% block opciones %}
+              {% endblock opciones%}
               <h1><a href="{% url 'home' %}">Reynald0 Blog</a></h1>
               <hr>
             </div>
@@ -17,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         {% block content %}
-                        {% endblock %}
+                        {% endblock content%}
                     </div>
                 </div>
             </div>

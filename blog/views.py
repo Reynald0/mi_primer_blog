@@ -5,12 +5,17 @@ from django import forms
 from .forms import PostForm
 
 def post_list(request):
+    log = False
+    username = ''
+    if request.user.is_authenticated():
+        log = True
+        username = request.user
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'posts': posts, 'log' : log, 'username' : username})
 
 def post_detail(request, pk):
     edit = False
-    if request.user.is_authenticated ():
+    if request.user.is_staff:
         edit = True
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post, 'edit_button': edit})
