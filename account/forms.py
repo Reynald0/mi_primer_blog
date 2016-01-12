@@ -35,7 +35,7 @@ class LogUser(forms.Form):
     username = forms.CharField(min_length=5, widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(min_length=5, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
-    def clean_user(self):
+    def clean_username(self):
         #Comprueba que exista un username en la base de datos
         username = self.cleaned_data['username']
         if not User.objects.filter(username=username):

@@ -2,7 +2,9 @@
 
 {% block content %}
   {% if error %}
-  <div class="alert alert-danger" role="alert">Usuario y/o contraseña inválido</div>
+  <div class="alert alert-danger" role="alert">Usuario y/o contraseña inválido! Puede que no se haya registrado,
+    <a href="{% url 'account.views.registro_usuario' %}" class="alert-link">registrese!</a>
+  </div>
   {% endif %}
   <h1> Iniciar sesión de usuario </h1>
   <form method="POST" class="post-form" enctype="multipart/form-data">
